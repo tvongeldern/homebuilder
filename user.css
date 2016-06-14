@@ -1,0 +1,62 @@
+shopping-user span div.user-new {
+    padding: 0 12px;
+}
+
+shopping-user span div.user-new h3 {
+    color: red;
+}
+
+shopping-user span div.user-new p {
+    font-size: .9em;
+}
+
+shopping-user span div.user-new div.input-container label {
+    display: inline-block;
+    width: 100%;
+    font-weight: bold;
+    margin: 4px 0;
+}
+
+shopping-user span div.user-new div.input-container input {
+    border: 1px solid #eeeeee;
+    padding: 12px;
+    width: 74%;
+    border-radius: .25em;
+}
+
+shopping-user span div.user-new button {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    border-radius: .25em;
+    padding: 4px 12px;
+    margin: 12px 0;
+    cursor: pointer;
+}
+
+shopping-user span div.user-recognized {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+shopping-user span div.user-recognized p {
+    margin: 12px 8px;
+    width: 60%;
+    overflow: hidden;
+    float: left;
+}
+
+shopping-user span div.user-recognized button {
+    background-color: red;
+    color: white;
+    border: 2px solid red;
+    border-radius: .25em;
+    padding: 4px 12px;
+    margin: 8px 8px;
+    float: right;
+    cursor: pointer;
+}

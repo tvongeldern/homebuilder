@@ -1,0 +1,22 @@
+<span ng-controller='userController' ng-init="populate()">
+
+<div ng-if="userObj.recognized" class='user-recognized'>
+    <p>{{ userObj.name + ' working on ' + userObj.project }}</p>
+    <button ng-click="exit()">Exit</button>
+</div>
+
+<div ng-if="!userObj.recognized" class="user-new">
+    <h3>Welcome, contractor!</h3>
+    <p>Enter your name and the name of the project you are working on to get started</p>
+    <div class="input-container">
+        <label>Name</label>
+        <input type="text" ng-model="userObj.name">
+    </div>
+    <div class="input-container">
+        <label>Project</label>
+        <input type="text" ng-model="userObj.project">
+    </div>
+    <button ng-click="verify()">Go</button>
+</div>
+
+</span>

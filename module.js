@@ -7,7 +7,7 @@ app.directive('shoppingModule', function(){
         scope: {
             room: '@'
         },
-        templateUrl: 'template.html'
+        templateUrl: 'module.html'
     }
 
 });
