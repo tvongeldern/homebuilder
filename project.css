@@ -1,0 +1,19 @@
+shopping-project {
+    display: block;
+    width: 100%;
+    margin: 44px 0 0 0;
+}
+
+shopping-project div.container button.add-room {
+    background-color: red;
+    color: white;
+    padding: 4px 8px;
+    border: 1px solid red;
+    border-radius: .2em;
+    float: right;
+}
+
+shopping-project div.container input {
+    float: right;
+    padding: 3px 8px;
+}

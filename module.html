@@ -1,7 +1,13 @@
 <ul ng-controller="shoppingController" ng-init="initialize()">
-    <li ng-if="!info.title" class='title loading'>Loading</li>
-    <li ng-if="info.title" ng-class='open ? "title up" : "title down"' ng-click="toggle()">{{ info.title }}</li>
-    <li ng-repeat="item in info.items">
+    <li ng-if="!room.roomName" class='title loading'>Loading</li>
+    <li ng-if="room.roomName" ng-class='open ? "title up" : "title down"' ng-click="toggle()">{{ room.roomName }}</li>
+    <li class='item' ng-repeat="item in info.items" ng-if='open'>
 
+    </li>
+    <li class='add-button' ng-if='open'>
+        <input ng-if="readyToAdd" type='text' placeholder="Item">
+        <input ng-if="readyToAdd" type='text' placeholder="Budget">
+        <button ng-if="!readyToAdd" ng-click="addReady()">Add Item</button>
+        <button ng-if="readyToAdd" ng-click="addReady()">Create</button>
     </li>
 </ul>

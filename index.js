@@ -58,7 +58,32 @@ app.post('/projectdata', function(request, response){
 
     var project = request.body.project;
 
-    response.send({hello:world});
+    var query = "SELECT * FROM rooms WHERE project='" + project + "'";
+
+    connection.query(query, function(err, rows){
+        if (!err){
+            response.send(rows);
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
+
+});
+
+app.post('/createroom', function(request, response){
+
+    var project = request.body.project;
+    var roomName = request.body.name;
+
+    var query = "INSERT INTO rooms (`roomName`, `project`) VALUES ('" + roomName + "', '" + project + "')";
+
+    connection.query(query, function(err, rows){
+        if (!err){
+            response.send({success: true});
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
 
 });
 

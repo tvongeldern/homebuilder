@@ -18,18 +18,17 @@ app.controller('shoppingController', function($scope, shoppingService){
     $scope.open = false;
 
     $scope.initialize = function(){
-        shoppingService.fetchData($scope.room)
-        .then(function success(response){
-            console.log("SUCCESS");
-            console.log(response);
-        }, function failure(response){
-            console.log("FAILURE");
-            console.log(response);
-        });
+        console.log(typeof $scope.room);
+        $scope.room = JSON.parse($scope.room);
     };
 
     $scope.toggle = function(){
         $scope.open = !$scope.open;
+        $scope.readyToAdd = false;
+    };
+
+    $scope.addReady = function(){
+        $scope.readyToAdd = true;
     };
 
 });

@@ -1,5 +1,11 @@
 <div class="container" ng-controller="projectController" ng-init="getProjectData()">
 
-    <shopping-module ng-repeat='room in rooms' room="room"></shopping-module>
+    <shopping-module ng-repeat='room in rooms' room="{{ room }}"></shopping-module>
+
+    <input ng-if="addReady" type='text' placeholder='Room Name' ng-model="user.newRoomName">
+    <button ng-if="!addReady" class='add-room' ng-click='readyAdd()'>Add Room</button>
+    <button ng-if="addReady" class='add-room' ng-click='createRoom()'>Create</button>
+
+
 
 </div>

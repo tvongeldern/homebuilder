@@ -36,11 +36,30 @@ shopping-module ul li.title {
 }
 
 shopping-module ul .up {
-    background: red url('./chevron.png') no-repeat right;
+    background: red url('./chevrondown.png') no-repeat right;
     background-size: 28px auto;
 }
 
 shopping-module ul .down {
-    background: red url('./chevrondown.png') no-repeat right;
+    background: red url('./chevron.png') no-repeat right;
     background-size: 28px auto;
+}
+
+shopping-module ul li.add-button {
+    width: 100%;
+    display: inline-block;
+}
+
+shopping-module ul li.add-button button {
+    background-color: red;
+    color: white;
+    border: 1px solid red;
+    border-radius: .2em;
+    padding: 4px 8px;
+    float: right;
+    margin-top: 2px;
+}
+
+shopping-module ul li.add-button input {
+    float: left;
 }
