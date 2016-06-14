@@ -17,6 +17,6 @@ CREATE TABLE `projects` (
 CREATE TABLE `rooms` (
   `roomKey` int(11) NOT NULL AUTO_INCREMENT,
   `roomName` varchar(35) DEFAULT NULL,
-  `project` int(11) DEFAULT NULL,
+  `project` varchar(35) DEFAULT NULL,
   PRIMARY KEY (`roomKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
