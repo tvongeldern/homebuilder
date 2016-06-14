@@ -1,0 +1,7 @@
+<ul ng-controller="shoppingController" ng-init="initialize()">
+    <li ng-if="!info.title" class='title'>Loading</li>
+    <li ng-if="info.title" ng-class='open ? "title up" : "title down"' ng-click="toggle()">{{ info.title }}</li>
+    <li ng-repeat="item in info.items">
+        
+    </li>
+</ul>

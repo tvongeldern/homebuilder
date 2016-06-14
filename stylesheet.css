@@ -1,0 +1,24 @@
+shopping-module ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+shopping-module ul li.title {
+    color: white;
+    padding: 4px 8px;
+    font-size: 1em;
+    border-radius: .1em;
+    margin: 2px 0;
+    background-color: red;
+}
+
+shopping-module ul .up {
+    background: red url('./chevron.png') no-repeat right;
+    background-size: 28px auto;
+}
+
+shopping-module ul .down {
+    background: red url('./chevrondown.png') no-repeat right;
+    background-size: 28px auto;
+}

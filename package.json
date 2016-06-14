@@ -1,0 +1,16 @@
+{
+  "name": "shopping",
+  "version": "1.0.0",
+  "description": "home shopping app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo 'Hello World'"
+  },
+  "author": "Tom von Geldern",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4",
+    "mysql": "^2.11.1"
+  }
+}
