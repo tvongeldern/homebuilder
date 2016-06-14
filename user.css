@@ -27,11 +27,31 @@ shopping-user span div.user-new div.input-container input {
 shopping-user span div.user-new button {
     background-color: red;
     color: white;
+    font-size: 1.1em;
     border: 2px solid red;
     border-radius: .25em;
     padding: 4px 12px;
     margin: 12px 0;
     cursor: pointer;
+}
+
+shopping-user span div.user-new div.auth-error {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    top: 0;
+    left: 0;
+}
+
+shopping-user span div.user-new div.auth-error div.content {
+    padding: 24px 12px;
+    text-align: center;
+}
+
+shopping-user span div.user-new div.auth-error div.content button {
+    font-size: 1em;
+    margin-right: 12px;
 }
 
 shopping-user span div.user-recognized {
@@ -41,6 +61,7 @@ shopping-user span div.user-recognized {
     width: 100%;
     height: 40px;
     border-bottom: 1px solid #eeeeee;
+    background-color: white;
 }
 
 shopping-user span div.user-recognized p {

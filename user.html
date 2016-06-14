@@ -1,22 +1,34 @@
 <span ng-controller='userController' ng-init="populate()">
 
-<div ng-if="userObj.recognized" class='user-recognized'>
-    <p>{{ userObj.name + ' working on ' + userObj.project }}</p>
-    <button ng-click="exit()">Exit</button>
-</div>
+<span ng-if="userObj.recognized" class='user-recognized'>
+    <div class="user-recognized">
+        <p>{{ userObj.name + ' working on ' + userObj.project }}</p>
+        <button ng-click="exit()">Exit</button>
+    </div>
+    <shopping-project></shopping-project>
+</span>
 
 <div ng-if="!userObj.recognized" class="user-new">
     <h3>Welcome, contractor!</h3>
     <p>Enter your name and the name of the project you are working on to get started</p>
-    <div class="input-container">
-        <label>Name</label>
-        <input type="text" ng-model="userObj.name">
+    <form ng-submit="verify()">
+        <div class="input-container">
+            <label>Name</label>
+            <input type="text" ng-model="userObj.name">
+        </div>
+        <div class="input-container">
+            <label>Project</label>
+            <input type="text" ng-model="userObj.project">
+        </div>
+        <button type="submit">Go</button>
+    </form>
+    <div class="auth-error" ng-if="authError">
+        <div class="content">
+            <h4>{{ authError }}</h4>
+            <button ng-if="authError.split('already taken').length < 2" ng-click="createProject(userObj)">Create New</button>
+            <button ng-click="tryAgain()">Try Again</button>
+        </div>
     </div>
-    <div class="input-container">
-        <label>Project</label>
-        <input type="text" ng-model="userObj.project">
-    </div>
-    <button ng-click="verify()">Go</button>
 </div>
 
 </span>
