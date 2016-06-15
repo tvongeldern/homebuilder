@@ -15,9 +15,13 @@ shopping-project div.container button.add-room {
     font-weight: bold;
 }
 
-shopping-project div.container input {
+shopping-project div.container .to-top {
+    margin-top: 0px !important;
+}
+
+shopping-project div.container input.room-name {
     float: right;
     padding: 3px 8px;
-    width: 28%;
-    margin-left: 6px;
+    width: 34%;
+    margin: 24px 0 0 6px;
 }

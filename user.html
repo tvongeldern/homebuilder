@@ -25,7 +25,7 @@
     <div class="auth-error" ng-if="authError">
         <div class="content">
             <h4>{{ authError }}</h4>
-            <button ng-if="authError.split('already taken').length < 2" ng-click="createProject(userObj)">Create New</button>
+            <button ng-if="(authError.split('already taken').length < 2) && (authError.split('database').length < 2)" ng-click="createProject(userObj)">Create New</button>
             <button ng-click="tryAgain()">Try Again</button>
         </div>
     </div>

@@ -36,6 +36,7 @@ app.controller('projectController', function($scope, projectService){
         projectService.createRoom(roomObj)
         .then(function success(response){
             $scope.getProjectData();
+            $scope.addReady = false;
         }, function failure(response){
             console.log(response);
         });

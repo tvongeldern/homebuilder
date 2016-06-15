@@ -42,6 +42,7 @@ app.controller('userController', function($scope, userService){
             }
         }, function failure(response){
             console.log(response);
+            $scope.authError = "Sorry, we are having trouble connecting to our database";
         });
     };
 

@@ -1,10 +1,12 @@
 <div class="container" ng-controller="projectController" ng-init="getProjectData()">
 
+    <h3 ng-if="!rooms[0]">Add a room to your project to get started</h3>
+
     <shopping-module ng-repeat='room in rooms' room="{{ room }}"></shopping-module>
 
-    <input ng-if="addReady" type='text' placeholder='Room Name' ng-model="user.newRoomName">
-    <button ng-if="!addReady" class='add-room' ng-click='readyAdd()'>Add Room</button>
-    <button ng-if="addReady" class='add-room' ng-click='createRoom()'>Create</button>
+    <input ng-if="addReady" type='text' placeholder='Room Name' ng-model="user.newRoomName" ng-class='{"room-name": true, "to-top": (rooms.length == 0)}'>
+    <button ng-if="!addReady" ng-class='{"add-room": true, "to-top": (rooms.length == 0)}' ng-click='readyAdd()'>Add Room</button>
+    <button ng-if="addReady" ng-class='{"add-room": true, "to-top": (rooms.length == 0)}' ng-click='createRoom()'>Create</button>
 
 
 

@@ -1,18 +1,20 @@
 <ul ng-controller="shoppingController" ng-init="initialize()">
     <li ng-if="loading" class='title loading'>Loading</li>
     <li ng-if="!loading" ng-class='open ? "title up" : "title down"' ng-click="toggle()">{{ room.roomName }}</li>
+    <p ng-if="errorMessage" class="error-message">{{ errorMessage }}</p>
     <li class='item' ng-repeat="item in items" ng-if='open'>
         <div class='item-container'>
             <b>{{ item.itemName }}</b>
             <input ng-model="item.itemCost" type="text" placeholder="Cost">
-            <span> / </span>
-            <input ng-model="item.itemBudget" type="text">
-            <button class="submit-item" ng-click="buy(item)">Purchased</button>
+            <span class="slash"> / </span>
+            <input ng-model="item.itemBudget" type="text" ng-blur="buy(item, !!item.itemBuyer)">
+            <button ng-if="!item.itemBuyer" class="submit-item" ng-click="buy(item, true)">Purchased</button>
+            <span ng-if="item.itemBuyer" class='bought-by'>{{ 'Bought by ' + (item.itemBuyer || 'unknown') }}</span>
         </div>
     </li>
     <li class='add-button' ng-if='open'>
-        <input ng-if="created.ready" type='text' placeholder="Item" ng-model="created.name">
-        <input ng-if="created.ready" type='text' placeholder="Budget" ng-model="created.budget">
+        <input ng-if="created.ready" type='text' placeholder="Item" ng-model="created.name" size="15">
+        <input ng-if="created.ready" type='text' placeholder="Budget" ng-model="created.budget" size="6">
         <button ng-if="!created.ready" ng-click="addReady()">Add Item</button>
         <button ng-if="created.ready" ng-click="createItem()">Create</button>
     </li>

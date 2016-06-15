@@ -15,6 +15,7 @@ app.directive('shoppingModule', function(){
 app.controller('shoppingController', function($scope, shoppingService){
 
     var project = JSON.parse(localStorage.getItem('currentUser') || {}).project;
+    var name = JSON.parse(localStorage.getItem('currentUser') || {}).name;
     var ctrl = this;
 
     $scope.info = null;
@@ -56,10 +57,12 @@ app.controller('shoppingController', function($scope, shoppingService){
     $scope.toggle = function(){
         $scope.open = !$scope.open;
         $scope.created.ready = false;
+        $scope.errorMessage = null;
     };
 
     $scope.addReady = function(){
         $scope.created.ready = true;
+        $scope.errorMessage = null;
     };
 
     $scope.createItem = function(){
@@ -81,22 +84,27 @@ app.controller('shoppingController', function($scope, shoppingService){
         });
     };
 
-    $scope.buy = function(item){
-        shoppingService.updateItem(item)
-        .then(function success(response){
-            $scope.initialize();
-        }, function failure(response){
-            console.log(response);
-        });
+    $scope.buy = function(item, purchased){
+        $scope.errorMessage = null;
+        item.buyer = purchased ? "'" + name + "'" : null;
+        if (purchased && !item.itemCost){
+            $scope.errorMessage = "Enter cost before purchasing item!";
+        } else {
+            shoppingService.updateItem(item)
+            .then(function success(response){
+                $scope.initialize();
+            }, function failure(response){
+                console.log(response);
+            });
+        }
     };
 
     ctrl.getBudget = function(){
         shoppingService.getBudget(project)
         .then(function success(response){
-            console.log(response);
             var arr = response;
             var len = response.length;
-            for (let i = 0; i < len; i++){
+            for (var i = 0; i < len; i++){
                 var item = arr[i];
                 var room = $scope.budget.rooms[item.itemRoom];
                 $scope.budget.budget += item.itemBudget || 0;
@@ -114,7 +122,6 @@ app.controller('shoppingController', function($scope, shoppingService){
                     }
                 }
             }
-            console.log($scope.budget);
         }, function failure(response){
             console.log(response);
         });

@@ -45,6 +45,12 @@ shopping-module ul .down {
     background-size: 28px auto;
 }
 
+shopping-module ul p.error-message {
+    margin: 4px;
+    color: red;
+    font-weight: bold;
+}
+
 shopping-module ul li.item {
     padding: 2px 0;
 }
@@ -69,9 +75,16 @@ shopping-module ul li.item div.item-container input {
     padding: 2px 4px;
 }
 
-shopping-module ul li.item div.item-container span {
+shopping-module ul li.item div.item-container span.slash {
     margin-top: 3px;
     float: left;
+}
+
+shopping-module ul li.item div.item-container span.bought-by {
+    font-size: .74em;
+    margin-top: 4px;
+    float: right;
+    text-overflow: ellipsis;
 }
 
 shopping-module ul li.item div.item-container button.submit-item {
@@ -81,6 +94,7 @@ shopping-module ul li.item div.item-container button.submit-item {
     border-radius: .2em;
     margin: 0;
     float: right;
+    padding: 4px;
 }
 
 shopping-module ul li.add-button {

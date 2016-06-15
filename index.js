@@ -129,7 +129,7 @@ app.post('/updateitem', function(request, response){
 
     var item = request.body;
 
-    var query = "UPDATE items SET `itemBudget`=" + item.itemBudget + ", `itemCost`=" + item.itemCost + " WHERE `itemName`='" + item.itemName + "' AND `itemRoom`='" + item.itemRoom + "' AND `itemProject`='" + item.itemProject + "'";
+    var query = "UPDATE items SET `itemBudget`=" + item.itemBudget + ", `itemCost`=" + item.itemCost + ", `itemBuyer`=" + item.buyer + " WHERE `itemName`='" + item.itemName + "' AND `itemRoom`='" + item.itemRoom + "' AND `itemProject`='" + item.itemProject + "'";
 
     connection.query(query, function(err){
         if (!err){
