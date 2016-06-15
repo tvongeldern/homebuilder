@@ -3,7 +3,7 @@ shopping-user span div.user-new {
 }
 
 shopping-user span div.user-new h3 {
-    color: red;
+    color: #ff3300;
 }
 
 shopping-user span div.user-new p {
@@ -25,10 +25,10 @@ shopping-user span div.user-new div.input-container input {
 }
 
 shopping-user span div.user-new button {
-    background-color: red;
+    background-color: #ff3300;
     color: white;
     font-size: 1.1em;
-    border: 2px solid red;
+    border: 2px solid #ff3300;
     border-radius: .25em;
     padding: 4px 12px;
     margin: 12px 0;
@@ -61,6 +61,9 @@ shopping-user span div.user-recognized {
     width: 100%;
     height: 40px;
     border-bottom: 1px solid #eeeeee;
+    box-shadow: 2px 2px 2px #f6f6f6;
+    -webkit-box-shadow: 2px 2px 2px #f6f6f6;
+    -moz-box-shadow: 2px 2px 2px #f6f6f6;
     background-color: white;
 }
 
@@ -72,9 +75,9 @@ shopping-user span div.user-recognized p {
 }
 
 shopping-user span div.user-recognized button {
-    background-color: red;
+    background-color: #ff3300;
     color: white;
-    border: 2px solid red;
+    border: 2px solid #ff3300;
     border-radius: .25em;
     padding: 4px 12px;
     margin: 8px 8px;

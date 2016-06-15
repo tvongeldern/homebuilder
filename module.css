@@ -32,17 +32,55 @@ shopping-module ul li.title {
     font-size: 1em;
     border-radius: .1em;
     margin: 2px 0;
-    background-color: red;
+    background-color: #3333cc;
 }
 
 shopping-module ul .up {
-    background: red url('./chevrondown.png') no-repeat right;
+    background: #3333cc url('./chevrondown.png') no-repeat right;
     background-size: 28px auto;
 }
 
 shopping-module ul .down {
-    background: red url('./chevron.png') no-repeat right;
+    background: #3333cc url('./chevron.png') no-repeat right;
     background-size: 28px auto;
+}
+
+shopping-module ul li.item {
+    padding: 2px 0;
+}
+
+shopping-module ul li.item div.item-container {
+    width: 100%;
+    display: inline-block;
+}
+
+shopping-module ul li.item div.item-container b {
+    font-weight: bold;
+    margin: 2px 12px;
+    font-size: .9em;
+    float: left;
+    width: 6em;
+    text-overflow: ellipsis;
+}
+
+shopping-module ul li.item div.item-container input {
+    float: left;
+    width: 2.8em;
+    padding: 2px 4px;
+}
+
+shopping-module ul li.item div.item-container span {
+    margin-top: 3px;
+    float: left;
+}
+
+shopping-module ul li.item div.item-container button.submit-item {
+    background-color: #339966;
+    color: white;
+    border: 2px solid #339966;
+    border-radius: .2em;
+    margin: 0;
+    float: right;
 }
 
 shopping-module ul li.add-button {
@@ -51,15 +89,32 @@ shopping-module ul li.add-button {
 }
 
 shopping-module ul li.add-button button {
-    background-color: red;
-    color: white;
-    border: 1px solid red;
+    background-color: white;
+    color: #339966;
+    border: 2px solid #339966;
     border-radius: .2em;
     padding: 4px 8px;
     float: right;
     margin-top: 2px;
+    font-weight: bold;
 }
 
 shopping-module ul li.add-button input {
     float: left;
+}
+
+shopping-module ul div.bottom-window {
+    position: fixed;
+    height: 60px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    border-top: 1px solid #eeeeee;
+    background-color: white;
+}
+
+shopping-module ul div.bottom-window p {
+    margin: 4px 8px;
+    font-weight: bold;
+    font-size: .8em;
 }

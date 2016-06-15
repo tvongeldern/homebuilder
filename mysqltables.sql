@@ -4,6 +4,8 @@ CREATE TABLE `items` (
   `itemImageUrl` varchar(250) DEFAULT NULL,
   `itemBudget` int(5) DEFAULT NULL,
   `itemCost` int(5) DEFAULT NULL,
+  `itemRoom` varchar(50) DEFAULT NULL,
+  `itemProject` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`itemKey`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 

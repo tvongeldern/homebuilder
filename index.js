@@ -87,6 +87,76 @@ app.post('/createroom', function(request, response){
 
 });
 
+app.post('/createitem', function(request, response){
+
+    var name = request.body.name;
+    var budget = request.body.budget;
+    var room = request.body.room;
+    var project = request.body.project;
+
+    var query = "INSERT INTO items (`itemName`, `itemBudget`, `itemRoom`, `itemProject`) VALUES ('" + name + "', " + budget + ", '" + room + "', '" + project + "')";
+
+    connection.query(query, function (err){
+
+        if (!err){
+            response.send({success: true});
+        } else {
+            response.send({error: err, query: query});
+        }
+
+    });
+
+});
+
+app.post('/getitems', function(request, response){
+
+    var project = request.body.project;
+    var room = request.body.room;
+
+    var query = "SELECT * FROM items WHERE itemProject='" + project + "' AND itemRoom='" + room + "'";
+
+    connection.query(query, function(err, rows){
+        if (!err){
+            response.send(rows);
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
+
+});
+
+app.post('/updateitem', function(request, response){
+
+    var item = request.body;
+
+    var query = "UPDATE items SET `itemBudget`=" + item.itemBudget + ", `itemCost`=" + item.itemCost + " WHERE `itemName`='" + item.itemName + "' AND `itemRoom`='" + item.itemRoom + "' AND `itemProject`='" + item.itemProject + "'";
+
+    connection.query(query, function(err){
+        if (!err){
+            response.send({success: true});
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
+
+});
+
+app.post('/getbudget', function(request, response){
+
+    var project = request.body.project;
+
+    var query = "SELECT itemBudget, itemCost, itemRoom FROM items WHERE itemProject='" + project + "'";
+
+    connection.query(query, function(err, rows){
+        if (!err){
+            response.send(rows);
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
+
+});
+
 app.listen(8080,function(){
 	console.log("Started on PORT 8080");
 });
