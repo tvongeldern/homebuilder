@@ -1,24 +1,19 @@
 CREATE TABLE `items` (
-  `itemKey` int(11) NOT NULL AUTO_INCREMENT,
   `itemName` varchar(35) DEFAULT NULL,
   `itemImageUrl` varchar(250) DEFAULT NULL,
   `itemBudget` int(5) DEFAULT NULL,
   `itemCost` int(5) DEFAULT NULL,
   `itemRoom` varchar(50) DEFAULT NULL,
   `itemProject` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`itemKey`)
+  `itemBuyer` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `projects` (
-  `projectKey` int(11) NOT NULL AUTO_INCREMENT,
   `projectName` varchar(35) DEFAULT NULL,
-  `projectAdmin` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`projectKey`)
+  `projectAdmin` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `rooms` (
-  `roomKey` int(11) NOT NULL AUTO_INCREMENT,
   `roomName` varchar(35) DEFAULT NULL,
-  `project` varchar(35) DEFAULT NULL,
-  PRIMARY KEY (`roomKey`)
+  `project` varchar(35) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
