@@ -32,14 +32,15 @@ app.controller('projectController', function($scope, projectService){
             project: $scope.user.project,
             name: $scope.user.newRoomName
         };
-        console.log(roomObj);
-        projectService.createRoom(roomObj)
-        .then(function success(response){
-            $scope.getProjectData();
-            $scope.addReady = false;
-        }, function failure(response){
-            console.log(response);
-        });
+        if (roomObj.name && roomObj.project){
+            projectService.createRoom(roomObj)
+            .then(function success(response){
+                $scope.getProjectData();
+                $scope.addReady = false;
+            }, function failure(response){
+                console.log(response);
+            });
+        }
     };
 
 });
