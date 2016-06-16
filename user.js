@@ -37,7 +37,6 @@ app.controller('userController', function($scope, userService){
                 localStorage.setItem('currentUser', JSON.stringify($scope.userObj));
                 $scope.populate();
             } else {
-                console.log("NOMATCH");
                 $scope.authError = "Project name \"" + $scope.userObj.project + "\" was not recognized, would you like to create a new project by that name?";
             }
         }, function failure(response){
@@ -63,7 +62,6 @@ app.controller('userController', function($scope, userService){
     $scope.createProject = function(user){
         userService.userCheck(user)
         .then(function success (response){
-            console.log(response);
             if (!response.length){
                 userService.createProject(user)
                 .then(function success(response){

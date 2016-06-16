@@ -66,7 +66,7 @@ app.controller('shoppingController', function($scope, shoppingService){
     $scope.createItem = function(){
         var item = {
             name: $scope.created.name,
-            budget: $scope.created.budget,
+            budget: String($scope.created.budget).replace(/\D/g,''),
             room: $scope.room.roomName,
             project: project
         }
@@ -85,6 +85,12 @@ app.controller('shoppingController', function($scope, shoppingService){
     $scope.buy = function(item, purchased){
         $scope.errorMessage = null;
         item.buyer = purchased ? "'" + name + "'" : null;
+        if (item.itemCost){
+            item.itemCost = String(item.itemCost).replace(/\D/g,'');
+        }
+        if (item.itemBudget){
+            item.itemBudget = String(item.itemBudget).replace(/\D/g,'');
+        }
         if (purchased && !item.itemCost){
             $scope.errorMessage = "Enter cost before purchasing item!";
         } else {
@@ -109,6 +115,12 @@ app.controller('shoppingController', function($scope, shoppingService){
     ctrl.getBudget = function(){
         shoppingService.getBudget(project)
         .then(function success(response){
+            $scope.budget = {
+                projected: 0,
+                spent: 0,
+                budget: 0,
+                rooms: {}
+            };
             var arr = response;
             var len = response.length;
             for (var i = 0; i < len; i++){
