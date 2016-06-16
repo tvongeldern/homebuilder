@@ -2,8 +2,10 @@
     <li ng-if="loading" class='title loading'>Loading</li>
     <li ng-if="!loading" ng-class='open ? "title up" : "title down"' ng-click="toggle()">{{ room.roomName }}</li>
     <p ng-if="errorMessage" class="error-message">{{ errorMessage }}</p>
+
     <li class='item' ng-repeat="item in items" ng-if='open'>
         <div class='item-container'>
+            <div class="x-out" ng-click="delete(item)">&#9747;</div>
             <b>{{ item.itemName }}</b>
             <input ng-model="item.itemCost" type="text" placeholder="Cost">
             <span class="slash"> / </span>
@@ -12,6 +14,11 @@
             <span ng-if="item.itemBuyer" class='bought-by'>{{ 'Bought by ' + (item.itemBuyer || 'unknown') }}</span>
         </div>
     </li>
+
+    <li ng-if="!!budget.rooms[room.roomName]" class="room-budget">
+        {{ room.roomName + " budget: $" + (budget.rooms[room.roomName].budget || '0') + "  |  spent: $" + (budget.rooms[room.roomName].spent || '0') + "  |  projected: $" + (budget.rooms[room.roomName].projected || 'unknown') }}
+    </li>
+
     <li class='add-button' ng-if='open'>
         <input ng-if="created.ready" type='text' placeholder="Item" ng-model="created.name" size="15">
         <input ng-if="created.ready" type='text' placeholder="Budget" ng-model="created.budget" size="6">

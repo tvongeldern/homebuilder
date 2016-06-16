@@ -60,12 +60,21 @@ shopping-module ul li.item div.item-container {
     display: inline-block;
 }
 
+shopping-module ul li.item div.item-container div.x-out {
+    float: left;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: .9em;
+    width: 6px;
+}
+
 shopping-module ul li.item div.item-container b {
     font-weight: bold;
     margin: 2px 12px;
     font-size: .9em;
     float: left;
-    width: 6em;
+    width: 5.8em;
     text-overflow: ellipsis;
 }
 
@@ -115,6 +124,11 @@ shopping-module ul li.add-button button {
 
 shopping-module ul li.add-button input {
     float: left;
+}
+
+shopping-module ul li.room-budget {
+    font-size: .64em;
+    margin: 4px 2px;
 }
 
 shopping-module ul div.bottom-window {

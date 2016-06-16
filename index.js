@@ -157,6 +157,22 @@ app.post('/getbudget', function(request, response){
 
 });
 
+app.post('/deleteitem', function(request, response){
+
+    var item = request.body;
+
+    var query = "DELETE FROM items WHERE `itemProject`='" + item.itemProject + "' AND `itemRoom`='" + item.itemRoom + "' AND `itemName`='" + item.itemName + "'";
+
+    connection.query(query, function(err){
+        if (!err){
+            response.send({success: true});
+        } else {
+            response.send({error: err, query: query});
+        }
+    });
+
+});
+
 app.listen(8080,function(){
 	console.log("Started on PORT 8080");
 });

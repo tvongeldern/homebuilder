@@ -1,5 +1,3 @@
-var app = angular.module("shoppingApp",[]);
-
 app.directive('shoppingModule', function(){
 
     return {
@@ -97,6 +95,15 @@ app.controller('shoppingController', function($scope, shoppingService){
                 console.log(response);
             });
         }
+    };
+
+    $scope.delete = function(item){
+        shoppingService.deleteItem(item)
+        .then(function success(response){
+            $scope.initialize();
+        }, function failure(response){
+            console.log(response);
+        });
     };
 
     ctrl.getBudget = function(){
@@ -207,11 +214,31 @@ app.service('shoppingService', function($http, $q){
         return prom.promise;
     }
 
+    function deleteItem(item){
+        var prom = $q.defer();
+
+        var url = "/deleteitem";
+        var data = item;
+        $http.post(url, data)
+        .success(function(response){
+            if (!response.error){
+                prom.resolve(response);
+            } else {
+                prom.reject(response);
+            }
+        })
+        .error(function(response){
+            prom.resolve(response);
+        });
+        return prom.promise;
+    }
+
     return {
         createItem,
         fetchItems,
         updateItem,
-        getBudget
+        getBudget,
+        deleteItem
     }
 
 });
